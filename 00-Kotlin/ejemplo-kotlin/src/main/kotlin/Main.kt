@@ -127,7 +127,25 @@ class Suma( // Constructor primario
     unoParametro,
     dosParametro
 ){
-
+    public val soyPublicoExplicito: String = "Publicas"
+    val soyPublicoImplicite: String = "Publico implicito"
+    init { // bloque constructor primario
+        this.numeroUno
+        this.numeroDos
+        numeroUno // this. OPCIONAL  [propiedades, metodos]
+        numeroDos // this. OPCIONAL  [propiedades, metodos]
+        this.soyPublicoImplicite
+        soyPublicoExplicito
+    }
+    constructor( // Constructor secundario
+        uno: Int?, // Entero nullable
+        dos: Int,
+    ):this(
+        if(uno == null) 0 else uno,
+        dos
+    ){
+        // Bloque de codigo de constructor secundario
+    }
 }
 
 

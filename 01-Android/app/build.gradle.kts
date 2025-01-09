@@ -35,6 +35,7 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+    buildToolsVersion = "34.0.0"
 }
 
 dependencies {
@@ -48,3 +49,4 @@ dependencies {
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 }
+tasks.register("testClasses")

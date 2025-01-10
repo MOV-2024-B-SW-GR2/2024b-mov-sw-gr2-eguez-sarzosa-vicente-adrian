@@ -74,7 +74,7 @@ class ESqliteHelperEntrenador(
         baseDatosEscritura.close()
         return if(resultadoActualizar.toInt()==-1) false else true
     }
-    fun consultarEntrenadorPorId(id: Int): BEntrenador?{
+    fun consultarEntrenadorPorId(id: Int): BEntrenador? {
         val baseDatosLectura = readableDatabase
         val scriptConsultaLectura = """
             SELECT * FROM ENTRENADOR WHERE ID = ?
@@ -86,39 +86,21 @@ class ESqliteHelperEntrenador(
                 parametrosConsultaLectura
             )
         val existeAlMenosUno = resultadoConsultaLectura.moveToFirst()
-        if(existeAlMenosUno){
+        if (existeAlMenosUno) {
             val arregloRespuesta = arrayListOf<BEntrenador>()
-            do{
+            do {
                 val entrenador = BEntrenador(
                     resultadoConsultaLectura.getInt(0), // 0 = id
                     resultadoConsultaLectura.getString(1), // 1 = nombre
                     resultadoConsultaLectura.getString(2) // 2 = descripcion
                 )
                 arregloRespuesta.add(entrenador)
-            }while(resultadoConsultaLectura.moveToNext())
+            } while (resultadoConsultaLectura.moveToNext())
             return arregloRespuesta[0] // En otros casos devolvemos el arrreglo completo
-        }else{
+        } else {
             return null
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    }
 
 
 }

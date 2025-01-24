@@ -104,6 +104,13 @@ class MainActivity : AppCompatActivity() {
             }
 
 
+        val bontonAuth = findViewById<Button>(R.id.btn_intent_firebase_ui)
+        bontonAuth
+            .setOnClickListener {
+                irActividad(HFirebaseUiAuth::class.java)
+            }
+
+
 
     }
     val callbackContenidoIntentImplicito =

@@ -35,7 +35,7 @@ class HFirebaseUiAuth : AppCompatActivity() {
     fun cambiarInterfaz(
         visibilidadLogin:Int = View.VISIBLE,
         visibilidadLogout: Int = View.INVISIBLE,
-        textoTextView:String = ""){
+        textoTextView:String = "Bienvenido"){
         val btnLogin = findViewById<Button>(R.id.btn_login_firebase)
         val btnLogout = findViewById<Button>(R.id.btn_logout_firebase)
         val tvBienvenida = findViewById<TextView>(R.id.tv_bienvenido)
@@ -66,7 +66,7 @@ class HFirebaseUiAuth : AppCompatActivity() {
         }
         val btnLogout = findViewById<Button>(R.id.btn_logout_firebase)
         btnLogout.setOnClickListener {
-            cambiarInterfaz(View.VISIBLE, View.INVISIBLE, "Bienvenido")
+            cambiarInterfaz()
             FirebaseAuth.getInstance().signOut()
         }
         val usuario = FirebaseAuth.getInstance().currentUser
